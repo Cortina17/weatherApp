@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Form from './components/Form';
+import Footer from './components/Footer';
+import History from './components/History';
+import Detail from './components/Detail';
+import { Provider } from 'react-redux';
+import { legacy_createStore } from 'redux';
+import weatherReducer from './reducers/weatherReducer'
 
-function App() {
+const store = legacy_createStore(weatherReducer);
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Provider store={store}>
+        <Header />
+        <main>
+          <Routes>
+            <Route path='/' element={
+              <div>
+                <Form />
+                <History />
+              </div>
+            } />
+            <Route path='/detail/:cityName' element={<Detail />} />
+          </Routes>
+        </main >
+        <Footer />
+      </Provider>
+    </>
   );
 }
 

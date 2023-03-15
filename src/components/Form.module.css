@@ -1,0 +1,44 @@
+.card {
+    margin-top: 4.5rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+
+}
+
+h5 {
+
+    display: flex;
+    justify-content: center;
+}
+
+.divider {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.input {
+    display: grid;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.container {
+    display: flex
+}
+
+.result,
+#weatherIcon,
+p {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
