@@ -1,4 +1,5 @@
-import { Card, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Button, Card, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import TravelExploreOutlinedIcon from '@mui/icons-material/TravelExploreOutlined';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -9,7 +10,7 @@ const History = ({ filas }) => {
     return (
         <Card className={classes.card}>
             <h3>Locations History</h3>
-            <p>weather for today</p>
+            <p>and weather for today</p>
             <Paper sx={{ width: '100%' }}>
                 <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -32,7 +33,14 @@ const History = ({ filas }) => {
                                     <TableCell align="center">{row.description}</TableCell>
                                     <TableCell align="center">
                                         <Link to={`/detail/${row.cityName}`}>
-                                            <button>View</button>
+                                            <Button
+                                                size='small'
+                                                variant="outlined"
+                                                endIcon={<TravelExploreOutlinedIcon />}
+                                                className={classes.btn}
+                                            >
+                                                View
+                                            </Button>
                                         </Link>
                                     </TableCell>
                                 </TableRow>
@@ -48,7 +56,7 @@ const History = ({ filas }) => {
 const mapStateToProps = (state) => {
     return (
         {
-            filas: state.rows
+            filas: state.searchHistory
         }
     );
 }

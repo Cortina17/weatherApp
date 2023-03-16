@@ -8,6 +8,8 @@ import Divider from '@mui/material/Divider';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import classes from './Form.module.css';
+import { useDispatch } from 'react-redux';
+import { addCityToHistory } from '../actions/addCityAction';
 
 const Form = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -47,6 +49,8 @@ const Form = () => {
         setCountryInputValue(e.target.value);
     };
 
+    const dispatch = useDispatch();
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -73,6 +77,13 @@ const Form = () => {
             setWeatherData(weatherDataByCoords);
             console.log(weatherDataByCoords);
 
+            dispatch(
+                addCityToHistory({
+                    cityName: weatherDataByCoords.name,
+                    temp: parseInt(weatherDataByCoords.main.temp) + "ºC",
+                    description: weatherDataByCoords.weather[0].description
+                })
+            );
         }
 
         //Llamada por codigo postal
@@ -95,6 +106,15 @@ const Form = () => {
                 });
 
             setWeatherData(weatherDataByCoords);
+            console.log(weatherDataByCoords);
+
+            dispatch(
+                addCityToHistory({
+                    cityName: weatherDataByCoords.name,
+                    temp: parseInt(weatherDataByCoords.main.temp) + "ºC",
+                    description: weatherDataByCoords.weather[0].description
+                })
+            );
         }
 
         setCityInputValue("");
@@ -138,7 +158,6 @@ const Form = () => {
                                     variant="filled"
                                     margin="dense"
                                     size='small'
-
                                     value={zipInputValue}
                                     disabled={cityInputValue !== ''}
                                     onChange={handleZipInputChange}
@@ -151,7 +170,6 @@ const Form = () => {
                                     variant="filled"
                                     margin="dense"
                                     size='small'
-
                                     required={(zipInputValue !== '')}
                                     value={countryInputValue}
                                     disabled={cityInputValue !== ''}
