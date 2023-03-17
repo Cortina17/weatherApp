@@ -28,7 +28,6 @@ const Detail = () => {
                 const weatherDataByCity = await response.json();
 
                 setWeatherData(weatherDataByCity);
-                console.log(weatherDataByCity);
 
             } catch (error) {
                 console.error(error);
@@ -63,7 +62,7 @@ const Detail = () => {
                             <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.list[0].weather[0].icon}@2x.png`} alt={weatherData.list[0].weather[0].description} />
                             <p>{parseInt(weatherData.list[0].main.temp)}ºC, {capitalizeFirstLetter(weatherData.list[0].weather[0].description)}</p>
                         </div>
-                        : <p>There's no information for the data entered.</p>
+                        : <p>{t('noInfo')}</p>
                     }
                 </Card >
                 <Card className={classes.card} sx={{ maxWidth: 175 }}>
@@ -74,7 +73,7 @@ const Detail = () => {
                             <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.list[8].weather[0].icon}@2x.png`} alt={weatherData.list[8].weather[0].description} />
                             <p>{parseInt(weatherData.list[8].main.temp)}ºC, {capitalizeFirstLetter(weatherData.list[8].weather[0].description)}</p>
                         </div>
-                        : <p>There's no information for the data entered.</p>
+                        : <p>{t('noInfo')}</p>
                     }
                 </Card >
                 <Card className={classes.card} sx={{ maxWidth: 175 }}>
@@ -85,7 +84,7 @@ const Detail = () => {
                             <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.list[16].weather[0].icon}@2x.png`} alt={weatherData.list[16].weather[0].description} />
                             <p>{parseInt(weatherData.list[16].main.temp)}ºC, {capitalizeFirstLetter(weatherData.list[16].weather[0].description)}</p>
                         </div>
-                        : <p>There's no information for the data entered.</p>
+                        : <p>{t('noInfo')}</p>
                     }
                 </Card >
                 <Card className={classes.card} sx={{ maxWidth: 175 }}>
@@ -96,7 +95,7 @@ const Detail = () => {
                             <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.list[24].weather[0].icon}@2x.png`} alt={weatherData.list[24].weather[0].description} />
                             <p>{parseInt(weatherData.list[24].main.temp)}ºC, {capitalizeFirstLetter(weatherData.list[24].weather[0].description)}</p>
                         </div>
-                        : <p>There's no information for the data entered.</p>
+                        : <p>{t('noInfo')}</p>
                     }
                 </Card >
                 <Card className={classes.card} sx={{ maxWidth: 175 }}>
@@ -107,7 +106,7 @@ const Detail = () => {
                             <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.list[32].weather[0].icon}@2x.png`} alt={weatherData.list[32].weather[0].description} />
                             <p>{parseInt(weatherData.list[32].main.temp)}ºC, {capitalizeFirstLetter(weatherData.list[32].weather[0].description)}</p>
                         </div>
-                        : <p>There's no information for the data entered.</p>
+                        : <p>{t('noInfo')}</p>
                     }
                 </Card >
             </div >

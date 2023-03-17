@@ -28,8 +28,8 @@
     text-decoration: none;
 }
 
-.menuBtn {
-    margin-right: 2rem;
+.menuBtn:hover {
+    cursor: pointer;
 }
 
 .languages {

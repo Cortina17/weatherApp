@@ -80,7 +80,6 @@ const Form = () => {
                 });
 
             setWeatherData(weatherDataByCoords);
-            console.log(weatherDataByCoords);
 
             dispatch(
                 addCityToHistory({
@@ -111,7 +110,6 @@ const Form = () => {
                 });
 
             setWeatherData(weatherDataByCoords);
-            console.log(weatherDataByCoords);
 
             dispatch(
                 addCityToHistory({
@@ -148,6 +146,7 @@ const Form = () => {
                                     id="city"
                                     name="city"
                                     label={t('cityLabel')}
+                                    placeholder='Barcelona'
                                     variant="filled"
                                     margin="dense"
                                     size='small'
@@ -160,6 +159,7 @@ const Form = () => {
                                     id="zip"
                                     name="zipCode"
                                     label={t('zipLabel')}
+                                    placeholder='08001'
                                     variant="filled"
                                     margin="dense"
                                     size='small'
