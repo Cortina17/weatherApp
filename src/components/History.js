@@ -4,8 +4,13 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classes from './History.module.css';
+import { capitalizeFirstLetter } from '../actions/capitalizeFirstLetterAction';
 
 const History = ({ filas }) => {
+
+    if (filas.length > 5) {
+        filas.splice(0, filas.length - 5);
+    }
 
     return (
         <Card className={classes.card}>
@@ -19,7 +24,7 @@ const History = ({ filas }) => {
                                 <TableCell><h4>City</h4></TableCell>
                                 <TableCell align="center"><h4>Temperature</h4></TableCell>
                                 <TableCell align="center"><h4>Description</h4></TableCell>
-                                <TableCell align="center"><h4>3-day Forecast</h4></TableCell>
+                                <TableCell align="center"><h4>5-day Forecast</h4></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -30,21 +35,23 @@ const History = ({ filas }) => {
                                 >
                                     <TableCell component="th" scope="row">{row.cityName}</TableCell>
                                     <TableCell align="center">{row.temp}</TableCell>
-                                    <TableCell align="center">{row.description}</TableCell>
+                                    <TableCell align="center">{capitalizeFirstLetter(row.description)}</TableCell>
                                     <TableCell align="center">
                                         <Link to={`/detail/${row.cityName}`}>
                                             <Button
                                                 size='small'
-                                                variant="outlined"
+                                                variant="contained"
                                                 endIcon={<TravelExploreOutlinedIcon />}
-                                                className={classes.btn}
+                                                sx={{
+                                                    '&:hover': { textDecoration: 'none' }
+                                                }}
                                             >
                                                 View
                                             </Button>
                                         </Link>
                                     </TableCell>
                                 </TableRow>
-                            ))}
+                            )).reverse()}
                         </TableBody>
                     </Table>
                 </TableContainer>

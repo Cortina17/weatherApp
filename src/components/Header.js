@@ -5,8 +5,9 @@ import Drawer from '@mui/material/Drawer';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './Header.module.css';
-import EN from '../assets/uk.png'
-import ESP from '../assets/spain.png'
+import EN from '../assets/uk.png';
+import ESP from '../assets/spain.png';
+import ThermostatIcon from '@mui/icons-material/Thermostat';
 
 const Header = () => {
 
@@ -23,7 +24,10 @@ const Header = () => {
     return (
         <header className={classes.header}>
             <nav>
-                <NavLink to="/" className={classes.link}>The Weather APP</NavLink>
+                <NavLink to="/" className={classes.link}>
+                    <ThermostatIcon />
+                    The Weather APP
+                </NavLink>
             </nav>
             <LanguageIcon
                 className={classes.menuBtn}

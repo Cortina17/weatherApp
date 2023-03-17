@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 3.5rem;
-    background-color: rgb(82, 145, 201);
+    background-color: #5291C9;
     color: white;
     align-items: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
@@ -17,6 +17,10 @@
 
 .link:visited {
     color: white;
+}
+
+.link:hover {
+    text-decoration: none;
 }
 
 .menuBtn {

@@ -10,6 +10,8 @@ import { useState } from 'react';
 import classes from './Form.module.css';
 import { useDispatch } from 'react-redux';
 import { addCityToHistory } from '../actions/addCityAction';
+import { capitalizeFirstLetter } from '../actions/capitalizeFirstLetterAction';
+
 
 const Form = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -181,10 +183,12 @@ const Form = () => {
                             <Button
                                 type='submit'
                                 size='small'
-                                variant="outlined"
+                                variant="contained"
                                 endIcon={<SearchIcon />}
-                                className={classes.btn}
-                            >
+                                sx={{
+                                    backgroundColor: '#5291C9',
+                                    '&:hover': { outlineColor: 'forestgreen', backgroundColor: 'forestgreen', color: 'white' }
+                                }}                            >
                                 Search
                             </Button>
                         </CardActions>
@@ -197,7 +201,7 @@ const Form = () => {
                         <div className='result'>
                             <p>Today's weather in... {weatherData.name}, {weatherData.sys.country}.</p>
                             <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt={weatherData.weather[0].description} />
-                            <p>{parseInt(weatherData.main.temp)}ºC {weatherData.weather.description}</p>
+                            <p>{parseInt(weatherData.main.temp)}ºC, {capitalizeFirstLetter(weatherData.weather[0].description)}.</p>
                         </div>
                         : <p>There's no information for the data entered.</p>
                     }

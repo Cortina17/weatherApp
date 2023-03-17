@@ -42,3 +42,9 @@ p {
     align-items: center;
     align-content: center;
 }
+
+.btn:hover {
+    color: white;
+    background-color: forestgreen;
+    outline-color: forestgreen;
+}

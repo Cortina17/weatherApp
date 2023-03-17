@@ -9,7 +9,10 @@ const BackBtn = () => {
                 <Button
                     variant="contained"
                     startIcon={<KeyboardReturnIcon />}
-                    sx={{ background: '#fc9a4f', color: 'black', marginTop: '2rem' }}
+                    sx={{
+                        marginTop: '2rem',
+                        direction: 'revert'
+                    }}
                 >
                     Back to Main Page
                 </Button>

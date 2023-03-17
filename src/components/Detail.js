@@ -5,6 +5,7 @@ import BackBtn from "./BackBtn";
 import classes from './Detail.module.css';
 import Footer from "./Footer";
 import Header from "./Header";
+import { capitalizeFirstLetter } from '../actions/capitalizeFirstLetterAction';
 
 const Detail = () => {
 
@@ -36,18 +37,27 @@ const Detail = () => {
         setIsLoading(false);
     }, [cityName]);
 
+    const dateConverter = (str, index) => {
+        const originalDateTime = weatherData.list[index].dt_txt;
+        const splitDateTime = originalDateTime.split(" ");
+        const originalDate = splitDateTime[0];
+        const splitDate = originalDate.split("-");
+        const reversedDate = splitDate.reverse().join("-");
+        return reversedDate;
+    }
+
     return (
         <>
             <Header />
-            <h2>{weatherData.city ? weatherData.city.name : "null"} Forecast</h2>
+            <h2 className={classes.title}>{weatherData.city ? ((weatherData.city.name + ", " + weatherData.city.country)) : "null"}. Forecast for 5 days.</h2>
             <div className={classes.container}>
                 <Card className={classes.card} sx={{ maxWidth: 175 }}>
                     {isLoading ? <CircularProgress /> : null}
                     {weatherData.city ?
                         <div className='result'>
-                            <p>Today's weather in... {weatherData.city.name}, {weatherData.city.country}.</p>
+                            <p>{dateConverter(weatherData.list[0].dt_txt, 0)}.</p>
                             <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.list[0].weather[0].icon}@2x.png`} alt={weatherData.list[0].weather[0].description} />
-                            <p>{parseInt(weatherData.list[0].main.temp)}ºC {weatherData.list[0].weather[0].description}</p>
+                            <p>{parseInt(weatherData.list[0].main.temp)}ºC, {capitalizeFirstLetter(weatherData.list[0].weather[0].description)}</p>
                         </div>
                         : <p>There's no information for the data entered.</p>
                     }
@@ -56,9 +66,9 @@ const Detail = () => {
                     {isLoading ? <CircularProgress /> : null}
                     {weatherData.city ?
                         <div className='result'>
-                            <p>Tomorrow's weather in... {weatherData.city.name}, {weatherData.city.country}.</p>
-                            <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.list[12].weather[0].icon}@2x.png`} alt={weatherData.list[12].weather[0].description} />
-                            <p>{parseInt(weatherData.list[12].main.temp)}ºC {weatherData.list[12].weather[0].description}</p>
+                            <p>{dateConverter(weatherData.list[8].dt_txt, 8)}.</p>
+                            <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.list[8].weather[0].icon}@2x.png`} alt={weatherData.list[8].weather[0].description} />
+                            <p>{parseInt(weatherData.list[8].main.temp)}ºC, {capitalizeFirstLetter(weatherData.list[8].weather[0].description)}</p>
                         </div>
                         : <p>There's no information for the data entered.</p>
                     }
@@ -67,9 +77,31 @@ const Detail = () => {
                     {isLoading ? <CircularProgress /> : null}
                     {weatherData.city ?
                         <div className='result'>
-                            <p>The day after tomorrow's weather in... {weatherData.city.name}, {weatherData.city.country}.</p>
+                            <p>{dateConverter(weatherData.list[16].dt_txt, 16)}.</p>
+                            <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.list[16].weather[0].icon}@2x.png`} alt={weatherData.list[16].weather[0].description} />
+                            <p>{parseInt(weatherData.list[16].main.temp)}ºC, {capitalizeFirstLetter(weatherData.list[16].weather[0].description)}</p>
+                        </div>
+                        : <p>There's no information for the data entered.</p>
+                    }
+                </Card >
+                <Card className={classes.card} sx={{ maxWidth: 175 }}>
+                    {isLoading ? <CircularProgress /> : null}
+                    {weatherData.city ?
+                        <div className='result'>
+                            <p>{dateConverter(weatherData.list[24].dt_txt, 24)}.</p>
                             <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.list[24].weather[0].icon}@2x.png`} alt={weatherData.list[24].weather[0].description} />
-                            <p>{parseInt(weatherData.list[24].main.temp)}ºC {weatherData.list[24].weather[0].description}</p>
+                            <p>{parseInt(weatherData.list[24].main.temp)}ºC, {capitalizeFirstLetter(weatherData.list[24].weather[0].description)}</p>
+                        </div>
+                        : <p>There's no information for the data entered.</p>
+                    }
+                </Card >
+                <Card className={classes.card} sx={{ maxWidth: 175 }}>
+                    {isLoading ? <CircularProgress /> : null}
+                    {weatherData.city ?
+                        <div className='result'>
+                            <p>{dateConverter(weatherData.list[32].dt_txt, 32)}.</p>
+                            <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.list[32].weather[0].icon}@2x.png`} alt={weatherData.list[32].weather[0].description} />
+                            <p>{parseInt(weatherData.list[32].main.temp)}ºC, {capitalizeFirstLetter(weatherData.list[32].weather[0].description)}</p>
                         </div>
                         : <p>There's no information for the data entered.</p>
                     }
