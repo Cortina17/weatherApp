@@ -15,6 +15,11 @@
     justify-content: space-around;
 }
 
+.link {
+    display: flex;
+    align-items: center;
+}
+
 .link:visited {
     color: white;
 }
@@ -27,6 +32,16 @@
     margin-right: 2rem;
 }
 
+.languages {
+    display: inline-flex;
+    align-items: center;
+    font-size: small;
+}
+
+.languages p {
+    margin-right: 0.5rem;
+}
+
 .drawer {
     width: 240;
     flex-shrink: 0;
@@ -34,4 +49,5 @@
 
 .img {
     width: 2rem;
+    margin-left: 0.5rem
 }

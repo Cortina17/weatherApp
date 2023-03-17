@@ -11,9 +11,12 @@ import classes from './Form.module.css';
 import { useDispatch } from 'react-redux';
 import { addCityToHistory } from '../actions/addCityAction';
 import { capitalizeFirstLetter } from '../actions/capitalizeFirstLetterAction';
-
+import { useTranslation } from 'react-i18next';
 
 const Form = () => {
+
+    const { t } = useTranslation();
+
     const [isLoading, setIsLoading] = useState(false);
     const [cityInputValue, setCityInputValue] = useState("");
     const [zipInputValue, setZipInputValue] = useState("");
@@ -138,13 +141,13 @@ const Form = () => {
                 <Card className={classes.card} sx={{ minWidth: 275 }}>
                     <form onSubmit={handleSubmit}>
                         <CardContent className={classes.content}>
-                            <h3>Get your weather info here!</h3>
-                            <h5>Please, fill only the city field or both ZIP code and country.</h5>
+                            <h3>{t('fieldTitle')}</h3>
+                            <h5>{t('fieldSubTitle')}</h5>
                             <div className={classes.input}>
                                 <TextField
                                     id="city"
                                     name="city"
-                                    label="City"
+                                    label={t('cityLabel')}
                                     variant="filled"
                                     margin="dense"
                                     size='small'
@@ -156,7 +159,7 @@ const Form = () => {
                                 <TextField
                                     id="zip"
                                     name="zipCode"
-                                    label="ZIP Code"
+                                    label={t('zipLabel')}
                                     variant="filled"
                                     margin="dense"
                                     size='small'
@@ -167,7 +170,7 @@ const Form = () => {
                                 <TextField
                                     id="country"
                                     name="country"
-                                    label="Country Code"
+                                    label={t('countryLabel')}
                                     placeholder='ES'
                                     variant="filled"
                                     margin="dense"
@@ -189,7 +192,7 @@ const Form = () => {
                                     backgroundColor: '#5291C9',
                                     '&:hover': { outlineColor: 'forestgreen', backgroundColor: 'forestgreen', color: 'white' }
                                 }}                            >
-                                Search
+                                {t('searchBtn')}
                             </Button>
                         </CardActions>
                     </form>
@@ -199,11 +202,11 @@ const Form = () => {
                     {isLoading ? <CircularProgress /> : null}
                     {weatherData.name ?
                         <div className='result'>
-                            <p>Today's weather in... {weatherData.name}, {weatherData.sys.country}.</p>
+                            <p>{t('info')} {weatherData.name}, {weatherData.sys.country}.</p>
                             <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt={weatherData.weather[0].description} />
                             <p>{parseInt(weatherData.main.temp)}ºC, {capitalizeFirstLetter(weatherData.weather[0].description)}.</p>
                         </div>
-                        : <p>There's no information for the data entered.</p>
+                        : <p>{t('noInfo')}</p>
                     }
                 </Card>
             </div>

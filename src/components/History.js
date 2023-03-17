@@ -5,8 +5,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classes from './History.module.css';
 import { capitalizeFirstLetter } from '../actions/capitalizeFirstLetterAction';
+import { useTranslation } from 'react-i18next';
 
 const History = ({ filas }) => {
+
+    const { t } = useTranslation();
+
 
     if (filas.length > 5) {
         filas.splice(0, filas.length - 5);
@@ -14,17 +18,16 @@ const History = ({ filas }) => {
 
     return (
         <Card className={classes.card}>
-            <h3>Locations History</h3>
-            <p>and weather for today</p>
+            <h3>{t('tableTitle')}</h3>
             <Paper sx={{ width: '100%' }}>
                 <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead className={classes.rowHeader}>
                             <TableRow>
-                                <TableCell><h4>City</h4></TableCell>
-                                <TableCell align="center"><h4>Temperature</h4></TableCell>
-                                <TableCell align="center"><h4>Description</h4></TableCell>
-                                <TableCell align="center"><h4>5-day Forecast</h4></TableCell>
+                                <TableCell><h4>{t('tableCity')}</h4></TableCell>
+                                <TableCell align="center"><h4>{t('tableTemp')}</h4></TableCell>
+                                <TableCell align="center"><h4>{t('tableDesc')}</h4></TableCell>
+                                <TableCell align="center"><h4>{t('tableForecast')}</h4></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -46,7 +49,7 @@ const History = ({ filas }) => {
                                                     '&:hover': { textDecoration: 'none' }
                                                 }}
                                             >
-                                                View
+                                                {t('viewBtn')}
                                             </Button>
                                         </Link>
                                     </TableCell>

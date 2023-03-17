@@ -6,8 +6,11 @@ import classes from './Detail.module.css';
 import Footer from "./Footer";
 import Header from "./Header";
 import { capitalizeFirstLetter } from '../actions/capitalizeFirstLetterAction';
+import { useTranslation } from "react-i18next";
 
 const Detail = () => {
+
+    const { t } = useTranslation();
 
     const { cityName } = useParams();
     const [isLoading, setIsLoading] = useState(false);
@@ -49,7 +52,8 @@ const Detail = () => {
     return (
         <>
             <Header />
-            <h2 className={classes.title}>{weatherData.city ? ((weatherData.city.name + ", " + weatherData.city.country)) : "null"}. Forecast for 5 days.</h2>
+            <h1 className={classes.title}>{t('detailTitle')}</h1>
+            <h2 className={classes.subtitle}>{weatherData.city ? ((weatherData.city.name + ", " + weatherData.city.country)) : "null"}. </h2>
             <div className={classes.container}>
                 <Card className={classes.card} sx={{ maxWidth: 175 }}>
                     {isLoading ? <CircularProgress /> : null}
