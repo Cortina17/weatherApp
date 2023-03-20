@@ -7,11 +7,11 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Divider from '@mui/material/Divider';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
-import classes from './Form.module.css';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { addCityToHistory } from '../actions/addCityAction';
 import { capitalizeFirstLetter } from '../actions/capitalizeFirstLetterAction';
-import { useTranslation } from 'react-i18next';
+import classes from './Form.module.css';
 
 const Form = () => {
 

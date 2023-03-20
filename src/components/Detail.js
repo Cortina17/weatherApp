@@ -1,12 +1,12 @@
 import { Card, CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+import { capitalizeFirstLetter } from '../actions/capitalizeFirstLetterAction';
 import BackBtn from "./BackBtn";
 import classes from './Detail.module.css';
 import Footer from "./Footer";
 import Header from "./Header";
-import { capitalizeFirstLetter } from '../actions/capitalizeFirstLetterAction';
-import { useTranslation } from "react-i18next";
 
 const Detail = () => {
 

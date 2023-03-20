@@ -5,13 +5,19 @@ import Drawer from '@mui/material/Drawer';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import DEU from '../assets/germany.png';
 import ESP from '../assets/spain.png';
 import EN from '../assets/uk.png';
+import FR from '../assets/french.png';
+import IT from '../assets/italy.png';
 import classes from './Header.module.css';
 
 const lngs = {
     en: { nativeName: 'English' },
-    es: { nativeName: 'Español' }
+    es: { nativeName: 'Español' },
+    deu: { nativeName: 'Deutsch' },
+    fr: { nativeName: 'French' },
+    it: { nativeName: 'Italiano' },
 };
 
 const Header = () => {
@@ -70,6 +76,27 @@ const Header = () => {
                                     className={classes.img}
                                     src={ESP}
                                     alt="Español"
+                                />
+                            )}
+                            {lng === 'deu' && (
+                                <img
+                                    className={classes.img}
+                                    src={DEU}
+                                    alt="Deutsch"
+                                />
+                            )}
+                            {lng === 'fr' && (
+                                <img
+                                    className={classes.img}
+                                    src={FR}
+                                    alt="French"
+                                />
+                            )}
+                            {lng === 'it' && (
+                                <img
+                                    className={classes.img}
+                                    src={IT}
+                                    alt="Italiano"
                                 />
                             )}
                         </Button>

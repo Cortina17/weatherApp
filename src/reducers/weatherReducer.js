@@ -17,5 +17,4 @@ const initialState = {
     searchHistory: []
 }
 
-
 export default weatherReducer;

@@ -1,16 +1,15 @@
-import { Button, Card, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import TravelExploreOutlinedIcon from '@mui/icons-material/TravelExploreOutlined';
+import { Button, Card, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import classes from './History.module.css';
 import { capitalizeFirstLetter } from '../actions/capitalizeFirstLetterAction';
-import { useTranslation } from 'react-i18next';
+import classes from './History.module.css';
 
 const History = ({ filas }) => {
 
     const { t } = useTranslation();
-
 
     if (filas.length > 5) {
         filas.splice(0, filas.length - 5);
