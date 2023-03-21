@@ -24,6 +24,7 @@ const Form = () => {
     const [zipInputValue, setZipInputValue] = useState("");
     const [countryInputValue, setCountryInputValue] = useState("");
     const [weatherData, setWeatherData] = useState({});
+    const [isFormSubmitted, setIsFormSubmitted] = useState(false);
     const [formulario, setFormulario] = useState({
         city: "",
         zipCode: "",
@@ -60,6 +61,8 @@ const Form = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        setIsFormSubmitted(true);
 
         setIsLoading(true);
 
@@ -214,7 +217,12 @@ const Form = () => {
                             </div>
                             <p>{parseInt(weatherData.main.temp)}ºC, {capitalizeFirstLetter(weatherData.weather[0].description)}.</p>
                         </div>
-                        : <p>{t('noInfo')}</p>
+                        :
+                        <div>
+                            {
+                                (isFormSubmitted && !weatherData.name) ? <p>{t('noInfo')}</p> : null
+                            }
+                        </div>
                     }
                 </Card>
             </div>
