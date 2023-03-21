@@ -200,12 +200,18 @@ const Form = () => {
                     </form>
                 </Card >
 
-                <Card className={classes.card} sx={{ minWidth: 275 }}>
+                <Card className={classes.resultCard} sx={{ minWidth: 275 }}>
                     {isLoading ? <CircularProgress /> : null}
                     {weatherData.name ?
-                        <div className='result'>
+                        <div className={classes.result}>
                             <p>{t('info')} {weatherData.name}, {weatherData.sys.country}.</p>
-                            <img id='weatherIcon' src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt={weatherData.weather[0].description} />
+                            <div id='weatherIcon'>
+                                <img
+                                    className={classes.img}
+                                    src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+                                    alt={weatherData.weather[0].description}
+                                />
+                            </div>
                             <p>{parseInt(weatherData.main.temp)}ºC, {capitalizeFirstLetter(weatherData.weather[0].description)}.</p>
                         </div>
                         : <p>{t('noInfo')}</p>
