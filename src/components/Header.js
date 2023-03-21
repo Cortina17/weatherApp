@@ -1,21 +1,21 @@
 import LanguageIcon from '@mui/icons-material/Language';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import FR from '../assets/french.png';
 import DEU from '../assets/germany.png';
+import IT from '../assets/italy.png';
 import ESP from '../assets/spain.png';
 import EN from '../assets/uk.png';
-import FR from '../assets/french.png';
-import IT from '../assets/italy.png';
 import classes from './Header.module.css';
 
 const lngs = {
     en: { nativeName: 'English' },
     es: { nativeName: 'Español' },
-    deu: { nativeName: 'Deutsch' },
+    de: { nativeName: 'Deutsch' },
     fr: { nativeName: 'French' },
     it: { nativeName: 'Italiano' },
 };
@@ -78,7 +78,7 @@ const Header = () => {
                                     alt="Español"
                                 />
                             )}
-                            {lng === 'deu' && (
+                            {lng === 'de' && (
                                 <img
                                     className={classes.img}
                                     src={DEU}

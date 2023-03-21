@@ -12,10 +12,12 @@ import { useDispatch } from 'react-redux';
 import { addCityToHistory } from '../actions/addCityAction';
 import { capitalizeFirstLetter } from '../actions/capitalizeFirstLetterAction';
 import classes from './Form.module.css';
+import i18n from '../i18n';
 
 const Form = () => {
 
     const { t } = useTranslation();
+    const lang = i18n.resolvedLanguage;
 
     const [isLoading, setIsLoading] = useState(false);
     const [cityInputValue, setCityInputValue] = useState("");
@@ -63,7 +65,7 @@ const Form = () => {
 
         //Llamada por ciudad
         if (formulario.city) {
-            const weatherDataByCity = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${formulario.city}&limit=1&appid=${apiKey}`)
+            const weatherDataByCity = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${formulario.city}&limit=1&appid=${apiKey}&lang=${lang}`)
                 .then((response) => (response).json())
                 .catch(error => {
                     console.error(error);
@@ -73,7 +75,7 @@ const Form = () => {
             const cityLatData = weatherDataByCity[0].lat;
             const cityLonData = weatherDataByCity[0].lon;
 
-            const weatherDataByCoords = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${cityLatData}&lon=${cityLonData}&limit=1&units=metric&appid=${apiKey}`)
+            const weatherDataByCoords = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${cityLatData}&lon=${cityLonData}&limit=1&units=metric&appid=${apiKey}&lang=${lang}`)
                 .then((response) => (response).json())
                 .catch(error => {
                     console.error(error);
@@ -93,7 +95,7 @@ const Form = () => {
         //Llamada por codigo postal
         if (formulario.zipCode && formulario.country) {
 
-            const weatherByZipData = await fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${formulario.zipCode},${formulario.country}&appid=${apiKey}`)
+            const weatherByZipData = await fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${formulario.zipCode},${formulario.country}&appid=${apiKey}&lang=${lang}`)
                 .then((response) => (response).json())
                 .catch(error => {
                     console.error(error);
@@ -103,7 +105,7 @@ const Form = () => {
             const cityLatData = weatherByZipData.lat;
             const cityLonData = weatherByZipData.lon;
 
-            const weatherDataByCoords = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${cityLatData}&lon=${cityLonData}&limit=1&units=metric&appid=${apiKey}`)
+            const weatherDataByCoords = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${cityLatData}&lon=${cityLonData}&limit=1&units=metric&appid=${apiKey}&lang=${lang}`)
                 .then((response) => (response).json())
                 .catch(error => {
                     console.error(error);
