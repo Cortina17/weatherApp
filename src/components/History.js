@@ -45,7 +45,12 @@ const History = ({ filas }) => {
                                                 variant="contained"
                                                 endIcon={<TravelExploreOutlinedIcon />}
                                                 sx={{
-                                                    '&:hover': { textDecoration: 'none' }
+                                                    backgroundColor: '#5291C9',
+                                                    '&:hover': {
+                                                        outlineColor: 'forestgreen',
+                                                        backgroundColor: 'forestgreen',
+                                                        color: 'white',
+                                                    }
                                                 }}
                                             >
                                                 {t('viewBtn')}

@@ -9,6 +9,29 @@ i18n
         debug: true,
         fallbackLng: 'en',
         resources: {
+            de: {
+                translation: {
+                    title: 'Wetter-App',
+                    detailTitle: 'Vorhersage für 5 Tage.',
+                    languages: 'Sprachen',
+                    fieldTitle: 'Holen Sie sich hier Ihre Wetterinformationen!',
+                    fieldSubTitle: 'Bitte füllen Sie nur das Feld "Stadt" aus oder geben Sie sowohl Postleitzahl als auch Land an.',
+                    cityLabel: 'Stadt',
+                    zipLabel: 'Postleitzahl',
+                    countryLabel: 'Ländercode',
+                    searchBtn: 'Suche',
+                    tableTitle: 'Standorte Verlauf',
+                    tableCity: 'Stadt',
+                    tableTemp: 'Temperatur',
+                    tableDesc: 'Beschreibung',
+                    tableForecast: '5-Tage-Vorhersage',
+                    info: "Das heutige Wetter in...",
+                    noInfo: "Für die eingegebenen Daten liegen keine Informationen vor.",
+                    viewBtn: 'Ansehen',
+                    backBtn: 'Zurück',
+                    footer: 'Alle Rechte vorbehalten.',
+                }
+            },
             en: {
                 translation: {
                     title: 'Weather APP',
@@ -55,29 +78,6 @@ i18n
                     footer: 'Todos los derechos reservados.',
                 }
             },
-            de: {
-                translation: {
-                    title: 'Wetter-App',
-                    detailTitle: 'Vorhersage für 5 Tage.',
-                    languages: 'Sprachen',
-                    fieldTitle: 'Holen Sie sich hier Ihre Wetterinformationen!',
-                    fieldSubTitle: 'Bitte füllen Sie nur das Feld "Stadt" aus oder geben Sie sowohl Postleitzahl als auch Land an.',
-                    cityLabel: 'Stadt',
-                    zipLabel: 'Postleitzahl',
-                    countryLabel: 'Ländercode',
-                    searchBtn: 'Suche',
-                    tableTitle: 'Standorte Verlauf',
-                    tableCity: 'Stadt',
-                    tableTemp: 'Temperatur',
-                    tableDesc: 'Beschreibung',
-                    tableForecast: '5-Tage-Vorhersage',
-                    info: "Das heutige Wetter in...",
-                    noInfo: "Für die eingegebenen Daten liegen keine Informationen vor.",
-                    viewBtn: 'Ansehen',
-                    backBtn: 'Zurück',
-                    footer: 'Alle Rechte vorbehalten.',
-                }
-            },
             fr: {
                 translation: {
                     title: 'Application Météo',
@@ -122,6 +122,29 @@ i18n
                     viewBtn: 'Visualizza',
                     backBtn: 'Indietro',
                     footer: 'Tutti i diritti riservati.'
+                }
+            },
+            pt: {
+                translation: {
+                    title: 'Aplicativo de Clima',
+                    detailTitle: 'Previsão de 5 dias.',
+                    languages: 'Idiomas',
+                    fieldTitle: 'Obtenha suas informações meteorológicas aqui!',
+                    fieldSubTitle: 'Por favor, preencha apenas o campo da cidade ou tanto o código postal quanto o país.',
+                    cityLabel: 'Cidade',
+                    zipLabel: 'Código Postal',
+                    countryLabel: 'Código do País',
+                    searchBtn: 'Pesquisar',
+                    tableTitle: 'Histórico de Localizações',
+                    tableCity: 'Cidade',
+                    tableTemp: 'Temperatura',
+                    tableDesc: 'Descrição',
+                    tableForecast: 'Previsão de 5 dias',
+                    info: 'Clima de hoje em...',
+                    noInfo: 'Não há informações para os dados inseridos.',
+                    viewBtn: 'Ver',
+                    backBtn: 'Voltar',
+                    footer: 'Todos os direitos reservados.'
                 }
             }
         }

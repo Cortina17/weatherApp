@@ -8,16 +8,18 @@ import { NavLink } from 'react-router-dom';
 import FR from '../assets/french.png';
 import DEU from '../assets/germany.png';
 import IT from '../assets/italy.png';
+import PT from '../assets/portugal.png';
 import ESP from '../assets/spain.png';
 import EN from '../assets/uk.png';
 import classes from './Header.module.css';
 
 const lngs = {
+    de: { nativeName: 'Deutsch' },
     en: { nativeName: 'English' },
     es: { nativeName: 'Español' },
-    de: { nativeName: 'Deutsch' },
     fr: { nativeName: 'French' },
     it: { nativeName: 'Italiano' },
+    pt: { nativeName: 'Portugués' },
 };
 
 const Header = () => {
@@ -56,51 +58,60 @@ const Header = () => {
                     open={isMenuOpen}
                     anchor="right"
                 >
-                    {Object.keys(lngs).map((lng) => (
-                        <Button
-                            key={lng}
-                            style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }}
-                            type="submit"
-                            onClick={() => i18n.changeLanguage(lng)}
-                        >
-                            {lngs[lng].nativeName}
-                            {lng === 'en' && (
-                                <img
-                                    className={classes.img}
-                                    src={EN}
-                                    alt="English"
-                                />
-                            )}
-                            {lng === 'es' && (
-                                <img
-                                    className={classes.img}
-                                    src={ESP}
-                                    alt="Español"
-                                />
-                            )}
-                            {lng === 'de' && (
-                                <img
-                                    className={classes.img}
-                                    src={DEU}
-                                    alt="Deutsch"
-                                />
-                            )}
-                            {lng === 'fr' && (
-                                <img
-                                    className={classes.img}
-                                    src={FR}
-                                    alt="French"
-                                />
-                            )}
-                            {lng === 'it' && (
-                                <img
-                                    className={classes.img}
-                                    src={IT}
-                                    alt="Italiano"
-                                />
-                            )}
-                        </Button>
-                    ))}
+                    <div className={classes.langBtns}>
+                        {Object.keys(lngs).map((lng) => (
+                            <Button
+                                key={lng}
+                                type="submit"
+                                onClick={() => i18n.changeLanguage(lng)}
+                                style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }}
+                            >
+                                {lngs[lng].nativeName}
+                                {lng === 'de' && (
+                                    <img
+                                        className={classes.img}
+                                        src={DEU}
+                                        alt="Deutsch"
+                                    />
+                                )}
+                                {lng === 'en' && (
+                                    <img
+                                        className={classes.img}
+                                        src={EN}
+                                        alt="English"
+                                    />
+                                )}
+                                {lng === 'es' && (
+                                    <img
+                                        className={classes.img}
+                                        src={ESP}
+                                        alt="Español"
+                                    />
+                                )}
+                                {lng === 'fr' && (
+                                    <img
+                                        className={classes.img}
+                                        src={FR}
+                                        alt="French"
+                                    />
+                                )}
+                                {lng === 'it' && (
+                                    <img
+                                        className={classes.img}
+                                        src={IT}
+                                        alt="Italiano"
+                                    />
+                                )}
+                                {lng === 'pt' && (
+                                    <img
+                                        className={classes.img}
+                                        src={PT}
+                                        alt="Portugués"
+                                    />
+                                )}
+                            </Button>
+                        ))}
+                    </div>
                 </Drawer>
             </div>
         </header >

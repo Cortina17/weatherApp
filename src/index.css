@@ -14,10 +14,7 @@ body {
   justify-content: center;
 }
 
-a {
-  text-decoration: none;
-}
-
+a,
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
