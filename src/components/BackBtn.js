@@ -15,6 +15,11 @@ const BackBtn = () => {
                     startIcon={<KeyboardReturnIcon />}
                     sx={{
                         marginTop: '2rem',
+                        backgroundColor: '#87B0C0',
+                        '&:hover': {
+                            backgroundColor: '#67AFCB'
+                        }
+
                     }}
                 >
                     {t('backBtn')}

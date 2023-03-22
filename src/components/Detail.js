@@ -75,7 +75,9 @@ const Detail = () => {
                     </Card>
                 ))}
             </div>
-            <BackBtn />
+            <div className={classes.backBtn}>
+                <BackBtn />
+            </div>
             <Footer />
         </>
     );
